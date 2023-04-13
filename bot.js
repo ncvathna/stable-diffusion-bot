@@ -15,9 +15,9 @@ bot.onText(/^[^\/].*/, (message, _) => {
         "cfg_scale": 7,
         "width": 512,
         "height": 512,
-        "restore_faces": false,
+        "restore_faces": true,
         "prompt": "best quality, rugged details, hdr, masterpiece, cinematic lighting, " + message.text,
-        "negative_prompt": "nsfw, nude, naked"
+        "negative_prompt": "nsfw, nude, naked, bare body"
     })
 
     var response = ""
