@@ -10,14 +10,14 @@ const TelegramBot = require("node-telegram-bot-api")
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, {polling: true})
 bot.onText(/^[^\/].*/, (message, _) => {
     const promptRequest = JSON.stringify({
-        "sampler_name": "DPM++ 2M Karras",
-        "steps": 20,
-        "cfg_scale": 7,
-        "width": 512,
-        "height": 512,
-        "restore_faces": true,
-        "prompt": "best quality, rugged details, hdr, masterpiece, cinematic lighting, " + message.text,
-        "negative_prompt": "nsfw, nude, naked, bare body"
+        "sampler_name": process.env.SAMPLER_NAME,
+        "steps": process.env.STEPS,
+        "cfg_scale": process.env.CFG_SCALE,
+        "width": process.env.WIDTH,
+        "height": process.env.HEIGHT,
+        "restore_faces": process.env.RESTORE_FACES,
+        "prompt": process.env.POSITVE_PROMPT + message.text,
+        "negative_prompt": process.env.NEGATIVE_PROMPT
     })
 
     var response = ""
